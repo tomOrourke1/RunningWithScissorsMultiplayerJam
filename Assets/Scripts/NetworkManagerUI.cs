@@ -26,26 +26,39 @@ public class NetworkManagerUI : MonoBehaviour
         hostBtn.onClick.AddListener(async () =>
         {
             await lobby.CreateLobby();
+            DisableButtons();
 
         });
         clientBtn.onClick.AddListener(async () =>
         {
             await lobby.QuickJoinLobby();
+            DisableButtons();
         });
 
 
         lanBtn.onClick.AddListener(async () =>
         {
             await lobby.LANStartLobby();
+            DisableButtons();
+
         }); 
         lanConnectBtn.onClick.AddListener(async () =>
         {
             await lobby.LANJoinLobby();
+            DisableButtons();
         });
 
 
 
 
+    }
+
+    void DisableButtons()
+    {
+        hostBtn.gameObject.SetActive(false);
+        clientBtn.gameObject.SetActive(false);
+        lanBtn.gameObject.SetActive(false);
+        lanConnectBtn.gameObject.SetActive(false);
     }
 
 

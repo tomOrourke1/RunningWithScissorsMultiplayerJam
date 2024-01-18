@@ -6,9 +6,11 @@ using UnityEngine;
 public class PlayerScript : NetworkBehaviour
 {
 
+    [Header("Components")]
     [SerializeField] SimpleMotor motor;
+    [SerializeField] InputGetters input;
 
-
+    [Header("Values")]
     [SerializeField] float speed = 10;
     [SerializeField] float gravity = 10;
 
@@ -17,14 +19,8 @@ public class PlayerScript : NetworkBehaviour
         if (!IsOwner) return;
         GroundCheck();
 
-        Vector3 vel = Vector3.zero;
+        Vector3 vel = input.PlannarInput;
 
-        if (Input.GetKey(KeyCode.A)) vel.x = -1;
-        if (Input.GetKey(KeyCode.D)) vel.x = 1;
-        if (Input.GetKey(KeyCode.W)) vel.z = 1;
-        if (Input.GetKey(KeyCode.S)) vel.z = -1;
-
-        vel.Normalize();
 
         vel = vel * speed;
 

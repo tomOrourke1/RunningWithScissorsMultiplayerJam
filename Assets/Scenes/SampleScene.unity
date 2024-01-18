@@ -823,6 +823,7 @@ GameObject:
   - component: {fileID: 729603884}
   - component: {fileID: 729603883}
   - component: {fileID: 729603882}
+  - component: {fileID: 729603886}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: MainCamera
@@ -948,6 +949,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 29.534, y: 0, z: 0}
+--- !u!114 &729603886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729603881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b533f6f84bd6fa418241e76356f5199, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &814832600
 GameObject:
   m_ObjectHideFlags: 0
@@ -1875,7 +1888,7 @@ MonoBehaviour:
   m_MaxConnectAttempts: 60
   m_DisconnectTimeoutMS: 30000
   ConnectionData:
-    Address: 
+    Address: 127.0.0.1
     Port: 7777
     ServerListenAddress: 0.0.0.0
   DebugSimulator:

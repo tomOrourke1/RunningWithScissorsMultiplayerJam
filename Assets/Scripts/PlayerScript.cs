@@ -14,6 +14,11 @@ public class PlayerScript : NetworkBehaviour
     [SerializeField] float speed = 10;
     [SerializeField] float gravity = 10;
 
+
+    [Header("Mesh")]
+    [SerializeField] Transform modelRoot;
+
+
     private void LateUpdate()
     {
         if (!IsOwner) return;
@@ -23,6 +28,10 @@ public class PlayerScript : NetworkBehaviour
 
 
         vel = vel * speed;
+
+        if(vel.magnitude > 0)
+            modelRoot.localRotation = Quaternion.Euler(0, Vector3.SignedAngle(Vector3.forward, vel.normalized, Vector3.up), 0);
+
 
         motor.Move(vel * Time.deltaTime, gravity * Time.deltaTime);
     }

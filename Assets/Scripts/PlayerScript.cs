@@ -29,8 +29,8 @@ public class PlayerScript : NetworkBehaviour
 
         vel = vel * speed;
 
-        if(vel.magnitude > 0)
-            modelRoot.localRotation = Quaternion.Euler(0, Vector3.SignedAngle(Vector3.forward, vel.normalized, Vector3.up), 0);
+        if (vel.magnitude > 0)
+            modelRoot.localRotation = Quaternion.Lerp(modelRoot.localRotation, Quaternion.Euler(0, Vector3.SignedAngle(Vector3.forward, vel.normalized, Vector3.up), 0), Time.deltaTime * 10);
 
 
         motor.Move(vel * Time.deltaTime, gravity * Time.deltaTime);
